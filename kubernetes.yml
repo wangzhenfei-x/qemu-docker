@@ -20,6 +20,7 @@ spec:
   containers:
   - name: qemu
     image: qemux/qemu-docker
+    imagePullPolicy: IfNotPresent
     env:
     - name: BOOT
       value: "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64/alpine-virt-3.19.1-x86_64.iso"

@@ -12,3 +12,21 @@ services:
     ports:
       - 8006:8006
     stop_grace_period: 2m
+    volumes:
+      - ./storage:/storage
+  alpine:
+    container_name: alpine
+    image: qemux/qemu-docker
+    environment:
+      BOOT: "https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/x86_64/alpine-virt-3.19.1-x86_64.iso"
+      KVM: "N"
+    devices:
+      #- /dev/kvm
+      - /dev/net/tun
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+    stop_grace_period: 2m
+    volumes:
+      - ./storage/alpine:/storage
